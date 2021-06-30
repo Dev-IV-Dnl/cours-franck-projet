@@ -16,6 +16,7 @@ session_start();
 
 <body>
 <section>
+<div class="container-nav-bar">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Projet Site IV</a>
@@ -87,6 +88,7 @@ session_start();
       </div>
     </div>
   </nav>
+  </div>
 
   <?php
 
@@ -157,7 +159,6 @@ session_start();
   <script src="./assets/javascript/projetSite2.js"></script>
 
 </section>
-<div class="container"></div>
 </body>
 
 </html>

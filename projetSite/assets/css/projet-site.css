@@ -9,10 +9,20 @@ body {
     background-color: var(--col2);
 }
 
+.container-nav-bar {
+    position: fixed;
+    width: 100vw;
+}
+
 section {
-    height: 1080px;
-    background-image: url(https://www.wallpapertip.com/wmimgs/9-94485_motocross-wallpaper-4k.jpg);
-    object-fit: contain;
+    height: 100vh;
+    background-image: url(../images/wall-papers/moto-cross1.jpg);
+    background-size: cover;
+    /* background-repeat: no-repeat; utile avec le contain
+    background-position: center;  utilise avec le contain */
+    /* background-attachment: fixed; */
+    overflow: auto; /*PERMET DE NE PLUS AVOIR DE FIN DE BACKGROUND-IMAGE */
+    height: 100vh;
 }
 
 *{
@@ -89,6 +99,7 @@ a:hover {
 
 h1 {
     margin: 10px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +121,7 @@ h3 {
     color:var(--col2);
 }
 h2 {
-    color:var(--col1);
+    color:var(--col3);
 
 }
 
