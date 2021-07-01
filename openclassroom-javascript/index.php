@@ -8,6 +8,6 @@
 </head>
 <body>
 <p id="livre"></p>
-    <script src="./poo1.js"></script>
+    <script src="./open3.js"></script>
 </body>
 </html>
