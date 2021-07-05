@@ -36,7 +36,7 @@ article {
     align-items: center;
     justify-content: space-between;
     width: 60%;
-    height: 210px;
+    height: 270px;
     background-color: var(--col1);
     border: solid 3px var(--col1);
     border-radius: 10px;
@@ -166,4 +166,15 @@ input:hover {
 }
 .menuAdmin>li>a:hover {
     color: var(--col2);
+}
+
+.buttonPanier {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    background-color: transparent;
+    border-radius: 5px;
+    right:0;
+    border: solid 1px;
 }

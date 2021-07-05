@@ -24,6 +24,10 @@ foreach ($listeArticles as $article) {
             <h4><?php echo $article["prix"]; ?> €.</h4>
 
             <p>Le <?php echo $date; ?>.</p>
+
+            <button class="buttonPanier">
+                <i class="fas fa-cart-plus"></i>
+            </button>
         </div>
     </article>
 <?php

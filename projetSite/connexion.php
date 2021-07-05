@@ -42,6 +42,7 @@ if (isset($_POST["pseudo"]) && isset($_POST["mot_de_passe"])) {
             $_SESSION["is_admin"] = $utilisateur["is_admin"];
         }
         $_SESSION['pseudo'] = $utilisateur['pseudo'];
+        $_SESSION['id'] = $utilisateur['id'];
         if (isset($_SESSION['is_admin'])) {
             header('Refresh:2;url=index.php?page=administration');
             echo '<h3>Bonjour ' . $_SESSION["pseudo"] . ', vous êtes bien connecté en tant qu\'administrateur !<br> Comme nous sommes un site extrêmement sympa, nous vous redirigeons vers la page administration.<br>Si ça n\'est pas le cas, cliquez <a href="./index.php?page=administration">ICI</a> !</h3>';
