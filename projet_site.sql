@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 30 juin 2021 à 10:03
+-- Généré le : lun. 05 juil. 2021 à 16:23
 -- Version du serveur :  10.4.19-MariaDB
 -- Version de PHP : 8.0.6
 
@@ -105,13 +105,18 @@ INSERT INTO `goodies` (`id`, `nom`, `image`, `description`, `date`) VALUES
 --
 
 CREATE TABLE `panier` (
-  `id` int(11) NOT NULL,
-  `nom` int(255) NOT NULL,
-  `image` int(255) NOT NULL,
-  `description` text NOT NULL,
-  `prix` int(11) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
+  `id_article` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `panier`
+--
+
+INSERT INTO `panier` (`id_article`, `id_utilisateur`) VALUES
+(2, 3),
+(4, 3),
+(5, 3);
 
 -- --------------------------------------------------------
 
@@ -162,7 +167,7 @@ ALTER TABLE `goodies`
 -- Index pour la table `panier`
 --
 ALTER TABLE `panier`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_article`,`id_utilisateur`);
 
 --
 -- Index pour la table `utilisateur`
@@ -191,12 +196,6 @@ ALTER TABLE `equipement`
 --
 ALTER TABLE `goodies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT pour la table `panier`
---
-ALTER TABLE `panier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
