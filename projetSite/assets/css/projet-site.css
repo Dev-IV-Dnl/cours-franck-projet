@@ -1,10 +1,11 @@
 :root {
-    --col1:#e95420;
-    --col2:#333;
-    --col3:#F1F1F1;
-    --col4:white;
-    --col5:rgb(179, 175, 175);
+    --col1: #e95420;
+    --col2: #333;
+    --col3: #F1F1F1;
+    --col4: white;
+    --col5: rgba(255,255,255,.55);
 }
+
 body {
     background-color: var(--col2);
 }
@@ -21,7 +22,8 @@ section {
     /* background-repeat: no-repeat; utile avec le contain
     background-position: center;  utilise avec le contain */
     /* background-attachment: fixed; */
-    overflow: auto; /*PERMET DE NE PLUS AVOIR DE FIN DE BACKGROUND-IMAGE */
+    overflow: auto;
+    /*PERMET DE NE PLUS AVOIR DE FIN DE BACKGROUND-IMAGE */
 }
 
 * {
@@ -50,6 +52,7 @@ article {
     flex-direction: column;
     width: 100%;
 }
+
 .produit>h2 {
     margin: 2px;
 }
@@ -58,11 +61,13 @@ article {
     display: flex;
     justify-content: center;
 }
+
 .produit>.descriptionProduit>p>a {
     text-decoration: none;
     transition: linear 0.3s;
     color: var(--col3);
 }
+
 .produit>.descriptionProduit>p>a:hover {
     color: var(--col2);
 }
@@ -93,6 +98,7 @@ article {
 a {
     color: var(--col2);
 }
+
 a:hover {
     color: var(--col3);
 }
@@ -113,16 +119,18 @@ h1 {
     transition: linear 0.3s;
     user-select: none;
 }
+
 h1:hover {
     color: var(--col1);
     background-color: var(--col3);
 }
 
 h3 {
-    color:var(--col2);
+    color: var(--col2);
 }
+
 h2 {
-    color:var(--col3);
+    color: var(--col3);
 
 }
 
@@ -138,10 +146,12 @@ input {
     color: var(--col1);
     transition: linear 0.3s;
 }
+
 input:hover {
     background-color: var(--col1);
     color: var(--col3);
 }
+
 ::placeholder {
     color: var(--col1);
 }
@@ -158,12 +168,14 @@ input:hover {
     border-radius: 10px;
     background-color: var(--col1);
 }
+
 .menuAdmin>li>a {
     margin: 10px;
     color: var(--col3);
     text-decoration: none;
     transition: linear 0.3s;
 }
+
 .menuAdmin>li>a:hover {
     color: var(--col2);
 }
@@ -175,6 +187,57 @@ input:hover {
     padding: 2px;
     background-color: transparent;
     border-radius: 5px;
-    right:0;
+    right: 0;
     border: solid 1px;
+}
+
+.lienPanier {
+    margin-right: 20px;
+    padding: 5px;
+}
+.icone {
+    transition: linear 0.3s;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--col5);
+}
+.icone:hover {
+    color: var(--col3);
+}
+
+.inputRecherche {
+    width: 236px;
+    height:38px;
+    border: 2px var(--col1);
+    border-radius: 10px;
+    transition: linear 0.3s;
+}
+.inputRecherche:hover {
+    background-color: var(--col1);
+    color: var(--col3);
+    border: solid 2px var(--col3);
+}
+
+.iconeRecherche {
+    transition: linear 0.3s;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--col5);
+}
+.iconeRecherche:hover {
+    color: var(--col1);
+}
+
+.recherche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--col1);
+    height: 40px;
+    width: 40px;
+    transition: linear 0.3s;
+    border: transparent;
+}
+.recherche:hover {
+    background-color: var(--col3);
 }

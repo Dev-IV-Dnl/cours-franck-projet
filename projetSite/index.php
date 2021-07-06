@@ -27,7 +27,7 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="./index.php?page=accueil">Accueil
+            <a class="nav-link" href="./index.php?page=accueil">Accueil
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
@@ -80,10 +80,13 @@ session_start();
           }
           ?>
         </ul>
+        <div class="lienPanier">
+              <a href="./index.php?page=panier"><i class="fas fa-cart-plus icone"></i></a>
+        </div>
         <form class="d-flex" method="GET" action="./index.php?page=recherche">
           <input name="page" type="hidden" value="recherche">
-          <input name="maRecherche" class="form-control me-sm-2" type="text" placeholder="Votre recherche..." autofocus>
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+          <input name="maRecherche" class="inputRecherche form-control me-sm-2" type="text" placeholder="Votre recherche..." autofocus>
+          <button class="recherche btn btn-secondary my-2 my-sm-0" type="submit"><i class="iconeRecherche fas fa-search"></i></button>
         </form>
       </div>
     </div>
@@ -137,6 +140,7 @@ session_start();
     "modifier-equipements",
     "modifier-goodies",
     "recherche",
+    "panier",
     "404"
   ];
 

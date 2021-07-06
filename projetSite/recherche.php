@@ -1,4 +1,4 @@
-<h1>VOTRE RECHERCHE :</h1>
+<h1>RECHERCHE</h1>
 
 <?php
 // ici je construis mon Select pour rechercher les fichier dans la BDD.
