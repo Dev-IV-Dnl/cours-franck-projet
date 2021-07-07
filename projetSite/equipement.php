@@ -18,7 +18,15 @@ foreach ($listeEquipements as $equipement) {
             <h2><?php echo $equipement["nom"]; ?></h2>
 
             <div class="descriptionProduit">
-                <p><?php echo substr($equipement["description"], 0, 120); ?>...<br><a href="#">En lire plus</a></p>
+                <p><?php
+                    if(strlen($equipement["description"])>120) {
+                        echo substr($equipement["description"], 0, 120);
+                        echo "<br><a href='#'>En lire plus...</a>";
+                    } else {
+                        echo $equipement["description"];
+                    }
+                    // echo "<br>".strlen($equipement["description"]);
+                ?></p>
             </div>
 
             <h4><?php echo $equipement["prix"]; ?> €.</h4>

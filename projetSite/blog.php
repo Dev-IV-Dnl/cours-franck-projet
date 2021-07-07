@@ -2,7 +2,7 @@
 
 <?php
 
-/*$resultat*/ $listeArticles = $connexion->query("SELECT * FROM article ORDER BY id DESC;")->fetchAll();
+$listeArticles = $connexion->query("SELECT * FROM article ORDER BY id DESC;")->fetchAll();
 
 // $listeArticles = $resultat->fetchAll();
 
@@ -18,7 +18,15 @@ foreach ($listeArticles as $article) {
             <h2><?php echo $article["nom"]; ?></h2>
 
             <div class="descriptionProduit">
-                <p><?php echo substr($article["description"], 0, 120); ?> ...<br><a href="#">En lire plus</a></p>
+                <p><?php
+                    if(strlen($article["description"])>120) {
+                        echo substr($article["description"], 0, 120);
+                        echo "<br><a href='#'>En lire plus...</a>";
+                    } else {
+                        echo $article["description"];
+                    }
+                    // echo "<br>".strlen($article["description"]);
+                ?></p>
             </div>
 
             <h4><?php echo $article["prix"]; ?> €.</h4>
@@ -34,7 +42,6 @@ foreach ($listeArticles as $article) {
                     </button>
                 </form>
             <?php
-
             }
             ?>
 

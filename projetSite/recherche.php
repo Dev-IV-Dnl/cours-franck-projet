@@ -17,16 +17,41 @@ foreach ($listeRechercheArticles as $rechercheArticles) {
 ?>
 
     <article>
-        <h2><?php echo $rechercheArticles["nom"]; ?></h2>
+        <img class="imageProduit" src="./assets/images/articles/<?php echo $rechercheArticles["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
 
-        <img style="width:200px;" src="./assets/images/articles/<?php echo $rechercheArticles["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
+        <div class="produit">
+            <h2><?php echo $rechercheArticles["nom"]; ?></h2>
 
-        <p><?php echo $rechercheArticles["description"]; ?></p>
+            <div class="descriptionProduit">
+                <p><?php
+                    if(strlen($rechercheArticles["description"])>120) {
+                        echo substr($rechercheArticles["description"], 0, 120);
+                        echo "<br><a href='#'>En lire plus...</a>";
+                    } else {
+                        echo $rechercheArticles["description"];
+                    }
+                    // echo "<br>".strlen($rechercheArticles["description"]);
+                ?></p>
+            </div>
 
-        <legend><?php echo $rechercheArticles["prix"]; ?> €.</legend>
+            <h4><?php echo $rechercheArticles["prix"]; ?> €.</h4>
 
-        <p>Le <?php echo $date; ?>.</p>
+            <p>Le <?php echo $date; ?>.</p>
 
+            <?php
+            if (isset($_SESSION['pseudo'])) {
+            ?>
+                <form method="POST">
+                    <input type="hidden" name="idArticle" value="<?php echo $article['id']; ?>">
+                    <button name="ajouterAuPanier" type="submit" class="buttonPanier">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </form>
+            <?php
+
+            }
+            ?>
+        </div>
     </article>
 
 <?php
@@ -49,16 +74,41 @@ foreach ($listeRechercheEquipements as $rechercheEquipements) {
 ?>
 
     <article>
-        <h2><?php echo $rechercheEquipements["nom"]; ?></h2>
 
-        <img style="width:200px;" src="./assets/images/equipement/<?php echo $rechercheEquipements["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
+        <img class="imageProduit" src="./assets/images/equipement/<?php echo $rechercheEquipements["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
 
-        <p><?php echo $rechercheEquipements["description"]; ?></p>
+        <div class="produit">
+            <h2><?php echo $rechercheEquipements["nom"]; ?></h2>
 
-        <legend><?php echo $rechercheEquipements["prix"]; ?> €.</legend>
+            <div class="descriptionProduit">
+                <p><?php
+                    if(strlen($rechercheEquipements["description"])>120) {
+                        echo substr($rechercheEquipements["description"], 0, 120);
+                        echo "<br><a href='#'>En lire plus...</a>";
+                    } else {
+                        echo $rechercheEquipements["description"];
+                    }
+                ?></p>
+            </div>
 
-        <p>Le <?php echo $date; ?>.</p>
+            <h4><?php echo $rechercheEquipements["prix"]; ?> €.</h4>
 
+            <p>Le <?php echo $date; ?>.</p>
+
+            <?php
+            if (isset($_SESSION['pseudo'])) {
+            ?>
+                <form method="POST">
+                    <input type="hidden" name="idArticle" value="<?php echo $article['id']; ?>">
+                    <button name="ajouterAuPanier" type="submit" class="buttonPanier">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </form>
+            <?php
+
+            }
+            ?>
+        </div>
     </article>
 
 <?php
@@ -81,14 +131,23 @@ foreach ($listeRechercheGoodies as $rechercheGoodies) {
 ?>
 
     <article>
-        <h2><?php echo $rechercheGoodies["nom"]; ?></h2>
+    <img style="width:200px;" src="./assets/images/goodies/<?php echo $rechercheGoodies["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
+        <div class="produit">
+            <h2><?php echo $rechercheGoodies["nom"]; ?></h2>
 
-        <img style="width:200px;" src="./assets/images/goodies/<?php echo $rechercheGoodies["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
+            <div class="descriptionProduit">
+                <p><?php
+                    if(strlen($rechercheGoodies["description"])>120) {
+                        echo substr($rechercheGoodies["description"], 0, 120);
+                        echo "<br><a href='#'>En lire plus...</a>";
+                    } else {
+                        echo $rechercheGoodies["description"];
+                    }
+                ?></p>
+            </div>
 
-        <p><?php echo $rechercheGoodies["description"]; ?></p>
-
-        <p>Le <?php echo $date; ?>.</p>
-
+            <p>Le <?php echo $date; ?>.</p>
+        </div>
     </article>
 
 <?php
