@@ -1,0 +1,2 @@
+bootstrap : faire un carousel
+https://www.youtube.com/watch?v=ONmNKEAFjNE
