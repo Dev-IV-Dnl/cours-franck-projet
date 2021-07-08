@@ -3,9 +3,9 @@
 <?php
 if (isset($_SESSION['pseudo'])) {
 ?>
-    <a href="./index.php?page=equipement">
-        Aller sur la page d'équipements réservée aux utilisateurs.
-    </a>
+    <div class="lienQuandUtilisateurConnecte">
+        <a href="./index.php?page=equipement">Aller sur la page d'équipements réservée aux utilisateurs.</a>
+    </div>
 <?php
 } else {
 ?>
@@ -45,10 +45,14 @@ if (isset($_POST["pseudo"]) && isset($_POST["mot_de_passe"])) {
         $_SESSION['id'] = $utilisateur['id'];
         if (isset($_SESSION['is_admin'])) {
             header('Refresh:2;url=index.php?page=administration');
-            echo '<h3>Bonjour ' . $_SESSION["pseudo"] . ', vous êtes bien connecté en tant qu\'administrateur !<br> Comme nous sommes un site extrêmement sympa, nous vous redirigeons vers la page administration.<br>Si ça n\'est pas le cas, cliquez <a href="./index.php?page=administration">ICI</a> !</h3>';
+            echo '<div class="messageConnexion">';
+            echo '<h3>Bienvenue administrateur ' . $_SESSION["pseudo"] . '!<br> Redirection vers la page administration,<br>Sinon cliquez <a href="./index.php?page=administration">ICI</a> !</h3>';
+            echo '</div>';
         } else {
             header('Refresh:2');
+            echo '<div class="messageConnexion">';
             echo "<h3>Bonjour " . $_SESSION["pseudo"] . ", vous êtes bien connecté en tant qu'utilisateur !</h3>";
+            echo '</div>';
         }
     }
 }
