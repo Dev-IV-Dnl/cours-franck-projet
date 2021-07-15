@@ -2,12 +2,15 @@
 
 namespace Controller;
 
-class AccueilController{
-    public function index(){
-        echo "Bienvenue sur la page d'accueil";
+class AccueilController extends BaseController
+{
+    public function index()
+    {
+        $this->afficherVue("accueil");
     }
 
-    public function nonTrouve(){
-        echo "La page n'existe pas";
+    public function nonTrouve()
+    {
+        $this->afficherVue("nonTrouve");
     }
 }

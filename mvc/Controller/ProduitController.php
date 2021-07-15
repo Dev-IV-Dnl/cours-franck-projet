@@ -2,39 +2,57 @@
 
 namespace Controller;
 
-// use Model\Produit;
-// use PDO;
+use Dao\ProduitDao;
+use Dao\UtilisateurDao;
 
-class ProduitController
+class ProduitController extends baseController
 {
     public function index()
     {
         echo "Bienvenue sur la page des produits";
     }
 
-    public function afficherProduit()
-    {
-        $connexion = new \PDO("mysql:dbname=mvc;host:localhost:3306;charset:UTF8", "root", "");
+    /**
+     * Méthode accessible via l'url localhost/coursfranck/mvc/produit/afficherProduit/XXX
+     * Où XX est égale à l'id du produit à afficher
+     */
+    public function afficherProduit($parametres){
+        //Si la troisième partie de l'url existe bien
+        if(isset($parametres[0])){
+            //on crée une instance de produit doa pour récupérer la produit dans la bdd
+            $dao = new ProduitDao();
+            //On récupère le produit ayant l'id passée en 3ème partie de l'url
+            $produit = $dao->findById($parametres[0]);
+            
+            if($produit){
+                $parametre = compact("produit");
+                $this->afficherVue("afficherProduit", $parametre);
+            } else {
+                echo "Le produit n'existe pas";
+            }
 
-        $requete = $connexion->prepare("SELECT * FROM produit");
-        $requete->execute();
-        $resusltat = $requete->fetchAll();
-
-        $listeProduit = [];
-
-        foreach ($resusltat as $ligneResultat) {
-
-            $produit = new \Model\Produit();
-            //on change les propriétés du produit en fonction de l'enregistrement dans la bdd
-            $produit->setId($ligneResultat["id"]);
-            $produit->setDesignation($ligneResultat["designation"]);
-            $produit->setPrixHt($ligneResultat["prix_ht"]);
-            $produit->setTva($ligneResultat["tva"]);
-
-            //on ajoute le produit à la liste des produits
-            $listeProduit[] = $produit;
-
-            include("./View/listeProduit.php");
+        } else {
+            echo "Il manque l'id du produit dans l'url ...";
         }
+    }
+
+    public function afficherListeProduits()
+    {
+        $daoUtilisateur = new UtilisateurDao();
+        $listeUtilisateur = $daoUtilisateur->findAll();
+        // \var_dump($daoUtilisateur->findAll());
+
+        // $parametre = [
+        //     "listeProduit" => $listeProduit,
+        //     "listeUtilisateur" => $listeUtilisateur
+        // ] voir ci-dessous :
+        
+
+        $dao = new ProduitDao();
+        $listeProduit = $dao->findAll();
+
+        $parametre = compact(["listeUtilisateur", "listeProduit"]);
+
+        $this->afficherVue("listeProduit", $parametre);
     }
 }

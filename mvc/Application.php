@@ -6,6 +6,9 @@ class Application
         //chemmin contient par exemple : /produit/afficher/42
         //si l'utilisateur a renseigné l'URL : localhost/.../produit/afficher/42
         $chemin = $_GET["page"];
+
+        //Si le chemin se finit avec un /, on le supprime.
+        $chemin = rtrim($chemin, "/");
         // produit serait alors le CONTROLLER à utiliser
         // aficher serait l'ACTION à effectuer (la méthode du controlleur)
         // 42 serait le paramètre
@@ -16,7 +19,7 @@ class Application
         $partieUrl = explode("/", $chemin);
         //Si l'utilisateur a omis la première partie de l'url,
         // alors la controller sera AccueilController (bien lire le if else qui suit):
-        if (isset($partieUrl[0]) && $partieUrl[0] != "") {
+        if (isset($partieUrl[0])) {
             //Si $partieUrl[0] contient accueil, $nomController contriendra : AccueilController
             $nomController = "Controller\\" . ucfirst($partieUrl[0]) . "Controller";
         } else {
@@ -24,7 +27,7 @@ class Application
         }
         //Si l'utilisateur a bien saison la deuxième partie de l'utl,
         //sinon on utilise la méthode index
-        if (isset($partieUrl[1]) && $partieUrl[1] != "") {
+        if (isset($partieUrl[1])) {
             $nomAction = $partieUrl[1];
         } else {
             $nomAction = "index";
@@ -39,7 +42,9 @@ class Application
             $nomAction = "nonTrouve";
         }
 
+        $parametres = array_slice($partieUrl, 2);
+
         $controller = new $nomController();
-        $controller->$nomAction();
+        $controller->$nomAction($parametres);
     }
 }
