@@ -1,4 +1,5 @@
 <?php
+session_start();
 use App\Autoloader;
 
 // $app = new Application();
@@ -17,11 +18,17 @@ Autoloader::register();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/solar/bootstrap.min.css">
     <title>Document</title>
 </head>
 
 <body>
+    <?php
+        // if(isset($_SESSION["message"])) {
+        //     echo $_SESSION["message"];
+        //     unset($_SESSION["message"]);
+        // }
+    ?>
 
 <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -34,20 +41,33 @@ Autoloader::register();
             <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <a class="nav-link active" href="#">Home
+                <a class="nav-link active" href="#">Accueil
                     <span class="visually-hidden">(current)</span>
                 </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">News</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="#">Nous contacter</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">A propos</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item">
+                <?php
+                if(isset($_SESSION["pseudo"])) {
+                ?>
+                    <a class="nav-link" href="/coursfranck/mvc/utilisateur/deconnexion">Deconnexion</a>
+                <?php
+                } else {
+                ?>
+                    <a class="nav-link" href="/coursfranck/mvc/utilisateur/connexion">Connexion</a>
+                <?php
+                }
+                ?>
+                </li>
+                <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Action</a>
@@ -56,7 +76,7 @@ Autoloader::register();
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Separated link</a>
                 </div>
-                </li>
+                </li> -->
             </ul>
             <form class="d-flex">
                 <input class="form-control me-sm-2" type="text" placeholder="Search">
@@ -68,6 +88,11 @@ Autoloader::register();
 </header>
     <?php
         Application::demarrer();
+    // if(isset($_SESSION["admin"]) && $_SESSION["admin"]) {
+    //     echo "<p>Vous êtes bien connecté en tant qu'administrateur.</p>";
+    // } elseif(isset($_SESSION["pseudo"])) {
+    //     echo "<p>Vous êtes bien connecté en tant qu'utilisateur.</p>";
+    // }
     ?>
     
 </body>

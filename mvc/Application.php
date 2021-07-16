@@ -19,7 +19,7 @@ class Application
         $partieUrl = explode("/", $chemin);
         //Si l'utilisateur a omis la première partie de l'url,
         // alors la controller sera AccueilController (bien lire le if else qui suit):
-        if (isset($partieUrl[0])) {
+        if (isset($partieUrl[0]) && $partieUrl[0]!="") {
             //Si $partieUrl[0] contient accueil, $nomController contriendra : AccueilController
             $nomController = "Controller\\" . ucfirst($partieUrl[0]) . "Controller";
         } else {
