@@ -12,7 +12,7 @@ foreach ($listeProduits as $produits) {
 ?>
     <article>
 
-        <img class="imageProduit" src="./assets/images/articles/<?php echo $produits["image_produit"]; ?>" alt="image motoCross" title="Image de MotoCross">
+        <img class="imageProduit" src="./assets/images/produits/<?php echo $produits["image_produit"]; ?>" alt="image motoCross" title="Image de MotoCross">
 
         <div class="produit">
             <h2>MOTO DU MOMENT :<br><?php echo $produits["nom_produit"]; ?></h2>

@@ -13,7 +13,7 @@ foreach ($listeEquipements as $equipement) {
 ?>
     <article>
 
-        <img class="imageProduit" src="./assets/images/equipement/<?php echo $equipement["image_produit"]; ?>" alt="image motoCross" title="Image de MotoCross">
+        <img class="imageProduit" src="./assets/images/produits/<?php echo $equipement["image_produit"]; ?>" alt="image motoCross" title="Image de MotoCross">
 
         <div class="produit">
             <h2><?php echo $equipement["nom_produit"]; ?></h2>
