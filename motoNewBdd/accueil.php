@@ -1,4 +1,4 @@
-<h1>ACCUEIL </h1>
+<h1>ACCUEIL<br>Articles du moment</h1>
 
 <?php
 
@@ -15,7 +15,7 @@ foreach ($listeProduits as $produits) {
         <img class="imageProduit" src="./assets/images/produits/<?php echo $produits["image_produit"]; ?>" alt="image motoCross" title="Image de MotoCross">
 
         <div class="produit">
-            <h2>MOTO DU MOMENT :<br><?php echo $produits["nom_produit"]; ?></h2>
+            <h2><?php echo $produits["nom_produit"]; ?></h2>
 
             <div class="descriptionProduit">
                 <p><?php
@@ -57,7 +57,7 @@ foreach ($listeProduits as $produits) {
         <img class="imageProduit" src="./assets/images/produits/<?php echo $produits['image_produit']; ?>" alt="image motoCross" title="Image de MotoCross">
 
         <div class="produit">
-            <h2>EQUIPEMENT DU MOMENT :<br><?php echo $produits["nom_produit"]; ?></h2>
+            <h2><?php echo $produits["nom_produit"]; ?></h2>
 
             <div class="descriptionProduit">
                 <p><?php
@@ -99,7 +99,7 @@ foreach ($listeProduits as $produits) {
         <img class="imageProduit" src="./assets/images/produits/<?php echo $produits['image_produit']; ?>" alt="image motoCross" title="Image de MotoCross">
 
         <div class="produit">
-            <h2>EQUIPEMENT DU MOMENT :<br><?php echo $produits["nom_produit"]; ?></h2>
+            <h2><?php echo $produits["nom_produit"]; ?></h2>
 
             <div class="descriptionProduit">
                 <p><?php

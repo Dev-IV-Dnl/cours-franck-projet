@@ -1,4 +1,4 @@
-<h1>BLOG</h1>
+<h1>MOTOS</h1>
 
 <?php
 

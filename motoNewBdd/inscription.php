@@ -16,6 +16,7 @@ if(isset($_SESSION['pseudo']) && $_SESSION['is_admin']) {
     <form method='POST'>
         <label for='register'>Inscrivez-vous ici en remplissant tous les champs :</label><br><br>
         <input name='pseudo' type="text" placeholder='Pseudo...' autofocus autocomplete='off'><br>
+        <input name='email' type="text" placeholder='E-mail...' autofocus autocomplete='off'><br>
         <input name='mot_de_passe' type='password' placeholder='Mot de Passe...'autocomplete='off'><br>
         <input name='confirmation_mot_de_passe' type='password' placeholder='Confirmer Mot de Passe...' autocomplete='off'><br><br>
         <input type='submit' value='Inscription'>
@@ -23,17 +24,18 @@ if(isset($_SESSION['pseudo']) && $_SESSION['is_admin']) {
 
 <?php
     if(isset($_POST["pseudo"])) {
-        if($_POST['pseudo']=="" || $_POST['mot_de_passe']=="" || $_POST['confirmation_mot_de_passe']=="") {
+        if($_POST['pseudo']=="" || $_POST['email']=="" || $_POST['mot_de_passe']=="" || $_POST['confirmation_mot_de_passe']=="") {
             echo 'Vous devez remplir tous les champs';
 
 
         } else {
 
-            if(isset($_POST['pseudo']) || isset($_POST['mot_de_passe']) || isset($_POST['confirmation_mot_de_passe'])) {
+            if(isset($_POST['pseudo']) || $_POST['email']=="" || isset($_POST['mot_de_passe']) || isset($_POST['confirmation_mot_de_passe'])) {
 
                 // echo "yup";
             
             $pseudo = $_POST['pseudo'];
+            $email = $_POST['email'];
             $mdp = $_POST['mot_de_passe'];
             $confMdp = $_POST['confirmation_mot_de_passe'];
 
@@ -42,8 +44,8 @@ if(isset($_SESSION['pseudo']) && $_SESSION['is_admin']) {
                 } else {
                     if($pseudo!="" && $mdp!="") {
 
-                        $inscriptionUtilisateur = "INSERT INTO utilisateur (pseudo, mot_de_passe)
-                        VALUES (:pseudo, :mot_de_passe)";
+                        $inscriptionUtilisateur = "INSERT INTO utilisateurs (pseudo, email, mot_de_passe)
+                        VALUES (:pseudo, :email, :mot_de_passe)";
 
                         // $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         //pas besoin car dans l'index fonction Bdd !
@@ -52,6 +54,7 @@ if(isset($_SESSION['pseudo']) && $_SESSION['is_admin']) {
                         $requete->execute
                         ([
                             ':pseudo' => $pseudo,
+                            ':email' => $email,
                             ':mot_de_passe' => password_hash($mdp, PASSWORD_BCRYPT)
                         ]);
 

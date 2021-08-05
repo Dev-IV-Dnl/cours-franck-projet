@@ -4,7 +4,7 @@
 if (isset($_SESSION['pseudo'])) {
 ?>
     <div class="lienQuandUtilisateurConnecte">
-    <a href="./index.php?page=equipement">Aller sur la page d'équipements réservée aux utilisateurs.</a>
+        <a href="./index.php?page=equipement">Aller sur la page d'équipements réservée aux utilisateurs.</a>
     </div>
 <?php
 } else {
@@ -24,7 +24,7 @@ if (isset($_POST["pseudo"]) && isset($_POST["mot_de_passe"])) {
     $pseudo = $_POST["pseudo"];
     $mdp = $_POST["mot_de_passe"];
 
-    $sql = "SELECT * FROM utilisateur WHERE pseudo = :pseudo";
+    $sql = "SELECT * FROM utilisateurs WHERE pseudo = :pseudo";
     // (echo $sql)
 
     // $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -44,10 +44,10 @@ if (isset($_POST["pseudo"]) && isset($_POST["mot_de_passe"])) {
         $_SESSION['pseudo'] = $utilisateur['pseudo'];
         $_SESSION['id'] = $utilisateur['id'];
         if (isset($_SESSION['is_admin'])) {
-            // header('Refresh:2;url=index.php?page=administration');
+            header('Refresh:2;url=index.php?page=administration');
             echo '<div class="messageConnexion">';
-                echo '<h3>Bienvenue administrateur ' . $_SESSION["pseudo"] . '!<br> Redirection vers la page administration,<br>Sinon cliquez <a href="./index.php?page=administration">ICI</a> !</h3>';
-                echo '</div>';
+            echo '<h3>Bienvenue administrateur ' . $_SESSION["pseudo"] . '!<br> Redirection vers la page administration,<br>Sinon cliquez <a href="./index.php?page=administration">ICI</a> !</h3>';
+            echo '</div>';
         } else {
             header('Refresh:2');
             echo '<div class="messageConnexion">';

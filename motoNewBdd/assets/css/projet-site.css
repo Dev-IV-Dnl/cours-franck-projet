@@ -16,6 +16,16 @@ body {
     width: 100vw;
 }
 
+@media screen and (max-width:573px) {
+    .container-nav-bar {
+        position: relative;
+        bottom: 0;
+        z-index: 1;
+        position: fixed;
+        width: 100vw;
+    }
+}
+
 section {
     height: 100vh;
     background-image: url(../images/wall-papers/moto-cross1.jpg);
@@ -39,12 +49,13 @@ article {
     align-items: center;
     justify-content: space-between;
     width: 60%;
-    height: 270px;
+    height: auto;
     background-color: var(--col1);
     border: solid 3px var(--col1);
     border-radius: 10px;
     box-shadow: 4px 4px 10px var(--col2);
     opacity: 0.9;
+    margin-bottom: 70px;
 }
 
 
@@ -97,6 +108,12 @@ article {
         height: 135px;
     }
 }
+@media screen and (max-width:319px) {
+    .imageProduit {
+        width: 160px;
+        height: 120px;
+    }
+}
 
 a {
     color: var(--col2);
@@ -113,8 +130,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 260px;
-    height: 100px;
+    width: 45%;
+    height: 130px;
     border: solid 2px var(--col1);
     border-radius: 10px;
     color: var(--col3);
@@ -130,7 +147,7 @@ h1:hover {
 }
 
 h3 {
-    color: var(--col2);
+    color: var(--col1);
 }
 
 .messageConnexion {

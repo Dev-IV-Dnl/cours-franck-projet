@@ -1,4 +1,15 @@
 <?php
+// fonction super isset :
+// function superIsset($tableau)
+// {
+//     foreach ($tableau as $champs) {
+//         if (!isset($_POST[$champs]) || $_POST[$champs] == "") {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
 session_start();
 ?>
 <!DOCTYPE html>
@@ -27,53 +38,48 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="./index.php?page=accueil">Accueil
+                <a class="nav-link" title="Accueil" href="./index.php?page=accueil"><i class="fas fa-home"></i>
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./index.php?page=blog">Blog</a>
+                <a class="nav-link" title="Motos" href="./index.php?page=blog"><i class="fas fa-motorcycle"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./index.php?page=goodies">Goodies</a>
+                <a class="nav-link" title="Equipements" href="./index.php?page=equipement"><i class="fas fa-mitten"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./index.php?page=equipement">Equipement</a>
+                <a class="nav-link" title="Goodies" href="./index.php?page=goodies"><i class="fas fa-gifts"></i></a>
               </li>
               <?php
-              if (!isset($_SESSION['pseudo']) && !isset($_SESSION['is_admin'])) {
-              ?>
-                <li class="nav-item">
-                  <a class="nav-link" href="./index.php?page=inscription">Inscription</a>
-                </li>
-              <?php
-              }
               if (!isset($_SESSION['pseudo'])) {
               ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="./index.php?page=connexion">Connexion</a>
+                  <a class="nav-link" title="Connexion" href="./index.php?page=connexion"><i class="fas fa-user"></i></a>
+                </li>
+              <?php
+              }
+              if (!isset($_SESSION['pseudo']) && !isset($_SESSION['is_admin'])) {
+              ?>
+                <li class="nav-item">
+                  <a class="nav-link" title="Inscription" href="./index.php?page=inscription"><i class="far fa-user"></i></a>
                 </li>
               <?php
               } else {
               ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="./index.php?page=deconnexion">Déconnexion</a>
+                  <a class="nav-link" title="Déconnexion" href="./index.php?page=deconnexion"><i class="fas fa-user-times"></i></a>
                 </li>
               <?php
               }
               if (isset($_SESSION['is_admin'])) {
               ?>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                  <a class="nav-link dropdown-toggle" title="Admin" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog"></i></a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="./index.php?page=ajout-article">Ajout d'articles</a>
-                    <a class="dropdown-item" href="./index.php?page=ajout-equipement">Ajout d'équipements</a>
-                    <a class="dropdown-item" href="./index.php?page=ajout-goodies">Ajout de Goodies</a>
-
+                    <a class="dropdown-item" href="./index.php?page=ajout-produit">Ajout de produit</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Modifier les articles</a>
-                    <a class="dropdown-item" href="#">Modifier les équipements</a>
-                    <a class="dropdown-item" href="#">Modifier les goodies</a>
+                    <a class="dropdown-item" href="./index.php?page=modifier-produit">Modifier des produits</a>
                   </div>
                 </li>
               <?php
@@ -132,13 +138,9 @@ session_start();
       "deconnexion",
       "goodies",
       "equipement",
-      "ajout-article",
-      "ajout-equipement",
-      "ajout-goodies",
+      "ajout-produit",
       "administration",
-      "modifier-articles",
-      "modifier-equipements",
-      "modifier-goodies",
+      "modifier-produit",
       "recherche",
       "panier",
       "article",
