@@ -8,13 +8,13 @@ if (!isset($_SESSION["is_admin"])) {
     if (isset($_SESSION["is_admin"])) {
 ?>
 
-        <form method="POST" class="ajoutArticle" enctype="multipart/form-data">
-            <input name="nom" type="text" autofocus placeholder="Nom du produit..."><br>
-            <textarea name="description" type="text" placeholder="Description du produit..."></textarea><br>
-            <input name="prix" type="text" placeholder="Prix du produit..."><br>
-            <input name="image" type="file"><br>
-            <input name="categorie" type="text" placeholder="Numéro catégorie..."><br><br>
-            <input type="submit">
+        <form class="formAjoutProduit" method="POST" class="ajoutArticle" enctype="multipart/form-data">
+            <input class="inputNom" name="nom" type="text" autofocus placeholder="Nom du produit..."><br>
+            <textarea class="inputDescription" name="description" type="text" placeholder="Description du produit..."></textarea><br>
+            <input class="inputPrix" name="prix" type="text" placeholder="Prix du produit..."><br>
+            <input class="inputImage" name="image" type="file"><br>
+            <input class="inputCategorie" name="categorie" type="text" placeholder="Numéro catégorie..."><br><br>
+            <input type="submit" value="Ajouter">
         </form><br><br><br>
 
 <?php
@@ -31,7 +31,7 @@ if (!isset($_SESSION["is_admin"])) {
                     $categorie = 1;
                 } elseif ($categorie == "equipement") {
                     $categorie = 2;
-                } elseif ($categorie == "goodies") {
+                } elseif ($categorie == "goodie") {
                     $categorie = 3;
                 }
 
@@ -45,8 +45,13 @@ if (!isset($_SESSION["is_admin"])) {
                     ':prix' => $prix,
                     ':categorie' => $categorie
                 ]);
-                // header('Refresh:2');
-                echo "Vous Venez d'ajouter un produit avec succès !";
+                
+                echo "<h3>Vous venez d'ajouter votre <span>".$_POST['categorie']."</span> avec succès !<h3>";
+                echo '<script language="Javascript">
+                <!--
+                     setTimeout(function(){ document.location.replace("./index.php?page=ajout-produit") }, 2000);
+                // -->
+                </script>';
             }
         }
     }

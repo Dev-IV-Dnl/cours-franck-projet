@@ -2,52 +2,52 @@
 
 <?php
 
-$article = $connexion->query("SELECT* FROM article WHERE id = '".$_GET["article"]."';")->fetch();
+$article = $connexion->query("SELECT* FROM article WHERE id = '" . $_GET["article"] . "';")->fetch();
 
 // $listeArticles = $resultat->fetchAll();
 
 
-    setlocale(LC_TIME, 'fr');
-    $date = strftime('%A %d %B %G à %Hh%M', strtotime($article['date']));
+setlocale(LC_TIME, 'fr');
+$date = strftime('%A %d %B %G à %Hh%M', strtotime($article['date']));
 ?>
-    
-        <article>
 
-            <img class="imageProduit" src="./assets/images/articles/<?php echo $article["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
+<article>
 
-            <div class="produit">
-                <h2><?php echo $article["nom"]; ?></h2>
+    <img class="imageProduit" src="./assets/images/articles/<?php echo $article["image"]; ?>" alt="image motoCross" title="Image de MotoCross">
 
-                <div class="descriptionProduit">
-                    <p><?php
-                        if(strlen($article["description"])>120) {
-                            echo substr($article["description"], 0, 120);
-                            echo "<br><a href='#'>En lire plus...</a>";
-                        } else {
-                            echo $article["description"];
-                        }
-                        // echo "<br>".strlen($article["description"]);
-                    ?></p>
-                </div>
+    <div class="produit">
+        <h2><?php echo $article["nom"]; ?></h2>
 
-                <h4><?php echo $article["prix"]; ?> €.</h4>
-
-                <p>Le <?php echo $date; ?>.</p>
-                <?php
-                if (isset($_SESSION['pseudo'])) {
-                ?>
-                    <form method="POST">
-                        <input type="hidden" name="idArticle" value="<?php echo $article['id']; ?>">
-                        <button name="ajouterAuPanier" type="submit" class="buttonPanier">
-                            <i class="fas fa-cart-plus"></i>
-                        </button>
-                    </form>
-                <?php
+        <div class="descriptionProduit">
+            <p><?php
+                if (strlen($article["description"]) > 120) {
+                    echo substr($article["description"], 0, 120);
+                    echo "<br><a href='#'>En lire plus...</a>";
+                } else {
+                    echo $article["description"];
                 }
-                ?>
+                // echo "<br>".strlen($article["description"]);
+                ?></p>
+        </div>
 
-            </div>
-        </article>
+        <h4><?php echo $article["prix"]; ?> €.</h4>
+
+        <p>Le <?php echo $date; ?>.</p>
+        <?php
+        if (isset($_SESSION['pseudo'])) {
+        ?>
+            <form method="POST">
+                <input type="hidden" name="idArticle" value="<?php echo $article['id']; ?>">
+                <button name="ajouterAuPanier" type="submit" class="buttonPanier">
+                    <i class="fas fa-cart-plus"></i>
+                </button>
+            </form>
+        <?php
+        }
+        ?>
+
+    </div>
+</article>
 <?php
 
 if (isset($_POST['ajouterAuPanier'])) {

@@ -9,7 +9,6 @@
 //     }
 //     return true;
 // }
-
 session_start();
 ?>
 <!DOCTYPE html>
@@ -19,8 +18,17 @@ session_start();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Police black Ops One-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+  <!--CSS font-awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--CSS bootswatch-->
   <link rel="stylesheet" href="https://bootswatch.com/5/united/bootstrap.min.css">
+  <!--CSS Bootstrap-->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
+  <!--MON CSS-->
   <link rel="stylesheet" href="./assets/css/projet-site.css">
   <title>motoNewBdd</title>
 </head>
@@ -28,9 +36,10 @@ session_start();
 <body>
   <section>
     <div class="container-nav-bar">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <!-- pour class boostrap : bg-primary-->
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Projet Site IV</a>
+          <a class="navbar-brand" href="./index.php?page=accueil">MX-IV</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -39,6 +48,11 @@ session_start();
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
                 <a class="nav-link" title="Accueil" href="./index.php?page=accueil"><i class="fas fa-home"></i>
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" title="Carousel" href="./index.php?page=carousel"><i class="fab fa-phoenix-squadron"></i></i>
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
@@ -74,13 +88,8 @@ session_start();
               }
               if (isset($_SESSION['is_admin'])) {
               ?>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" title="Admin" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog"></i></a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="./index.php?page=ajout-produit">Ajout de produit</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="./index.php?page=modifier-produit">Modifier des produits</a>
-                  </div>
+                <li class="nav-item">
+                  <a class="nav-link" title="Administration" href="./index.php?page=administration"><i class="fas fa-user-cog"></i></a>
                 </li>
               <?php
               }
@@ -132,6 +141,7 @@ session_start();
 
     $listePagesDisponibles = [
       "accueil",
+      "carousel",
       "blog",
       "inscription",
       "connexion",
@@ -143,7 +153,7 @@ session_start();
       "modifier-produit",
       "recherche",
       "panier",
-      "article",
+      "produit",
       "404"
     ];
 
@@ -162,8 +172,12 @@ session_start();
 
       ?>
     </center>
+    <!--JS bootswatch-->
     <script src="./assets/javascript/projetSite.js"></script>
     <script src="./assets/javascript/projetSite2.js"></script>
+
+    <!--JS bootstrap-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> -->
 
   </section>
 </body>
