@@ -1,0 +1,55 @@
+<h1>Votre <?php echo $produit->getNomProduit();?></h1>
+
+<article>
+
+            <img class="imageProduit" src="/moto_mvc/View/assets/images/produits/<?php echo $produit->getImageProduit(); ?>" alt="image motoCross" title="Image de MotoCross">
+
+            <div class="produit">
+
+                <div class="descriptionProduit">
+                    <p><?php
+                        if (strlen($produit->getDescriptionProduit()) > 120) {
+                            echo '<span>' . substr($produit->getDescriptionProduit(), 0, 120) . '</span>';
+                        ?>
+                            <br><a class='enLirePlus' href='/moto_mvc/produit/afficherProduit/<?php echo $produit->getIdProduit();?>'>En lire plus...</a>
+                        <?php
+                        } else {
+                            echo '<span>' . $produit->getDescriptionProduit() . '</span>';
+                        }
+                        // echo "<br>".strlen($article["description"]);
+                        ?>
+                    </p>
+                </div>
+
+                <h4><?php echo $produit->getPrixProduit(); ?> €.</h4>
+
+                <p>Le <?php echo $date; ?>.</p>
+                <div class="modifPanier">
+                    <?php
+                    if (isset($_SESSION['pseudo'])) {
+                    ?>
+                        <form method="POST" title="Ajouter au panier">
+                            <input type="hidden" name="idArticle" value="<?php echo $motos['id_produit']; ?>">
+                            <button name="ajouterAuPanier" type="submit" class="buttonPanier">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </form>
+                    <?php
+                    }
+                    if (isset($_SESSION['pseudo']) && isset($_SESSION['is_admin'])) {
+                    ?>
+                        <a class="buttonPanier" href="./index.php?page=modifier-produit&produit=<?php echo $motos['id_produit']; ?>" title="Modifier produit">
+                            <i class="fas fa-wrench"></i>
+                        </a>
+                        <form method="POST" title="Supprimer produit">
+                            <input type="hidden" name="idProduit" value="<?php echo $motos['id_produit']; ?>">
+                            <button name="supprimerProduit" type="submit" class="buttonPanier">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </article>
