@@ -4,27 +4,27 @@ namespace Model;
 
 class Utilisateur
 {
-    protected $id;
+    protected $idUtilisateur;
     protected $pseudo;
     protected $motDePasse;
     protected $admin;
 
     /**
-     * Get the value of id
-     */
-    public function getId()
+     * Get the value of idUtilisateur
+     */ 
+    public function getIdUtilisateur()
     {
-        return $this->id;
+        return $this->idUtilisateur;
     }
 
     /**
-     * Set the value of id
+     * Set the value of idUtilisateur
      *
      * @return  self
-     */
-    public function setId($id)
+     */ 
+    public function setIdUtilisateur($idUtilisateur)
     {
-        $this->id = $id;
+        $this->idUtilisateur = $idUtilisateur;
 
         return $this;
     }

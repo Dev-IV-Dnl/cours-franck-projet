@@ -85,7 +85,7 @@ class BaseDao
 
         $requete = $connexion->prepare("SELECT * FROM " . $table);
 
-        var_dump($requete);
+        // var_dump($requete);
         $requete->execute();
         $resusltat = $requete->fetchAll();
 

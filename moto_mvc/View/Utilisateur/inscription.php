@@ -1,3 +1,5 @@
+<h1>INSCRIPTION</h1>
+
 <form method='POST'>
     <label for='register'>Inscrivez-vous ici en remplissant tous les champs :</label><br><br>
     <input name='pseudo' type="text" placeholder='Pseudo...' autofocus autocomplete='off'><br>

@@ -36,9 +36,10 @@ class ProduitController extends Controller
         }
     }
 
-    public function listeProduit()
+    public function listeProduit($parametres="")
     {
-        $daoUtilisateur = new UtilisateurDao();
+        $daoUtilisateur = new UtilisateurDao();   
+        $dao = new ProduitDao();
         $listeUtilisateur = $daoUtilisateur->findAll();
         // \var_dump($daoUtilisateur->findAll());
 
@@ -46,12 +47,15 @@ class ProduitController extends Controller
         //     "listeProduit" => $listeProduit,
         //     "listeUtilisateur" => $listeUtilisateur
         // ] voir ci-dessous :
+        if(isset($parametres[0]) && $parametres!="") {
+            $listeProduit = $dao->findAllByCategorie($parametres[0]);
+        } else {
+            $listeProduit = $dao->findAll();
+        }
 
+        var_dump($parametres);
 
-        $dao = new ProduitDao();
-        $listeProduit = $dao->findAll();
-
-        $parametre = compact(["listeUtilisateur", "listeProduit"]);
+        $parametre = compact(["listeUtilisateur", "listeProduit","parametres"]);
 
         $this->afficherVue("listeProduit", $parametre);
     }

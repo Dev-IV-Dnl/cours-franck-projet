@@ -1,5 +1,23 @@
 <?php
 
+if (!isset($_SESSION['pseudo'])) {
+?>
+    <h1 style="margin-bottom: 60px;">CAROUSEL<br>Articles du moment</h1>
+<?php
+} else if($parametres[0]=="moto") {
+?>
+    <h1 style="margin-bottom: 60px;">Hey <?php echo $_SESSION['pseudo']; ?> !<br>Jette un oeil sur les motos !</h1>
+<?php
+} else if($parametres[0]=="equipement") {
+    ?>
+        <h1 style="margin-bottom: 60px;">Hey <?php echo $_SESSION['pseudo']; ?> !<br>Jette un oeil sur les équipements !</h1>
+    <?php
+} else if($parametres[0]=="goodie") {
+    ?>
+        <h1 style="margin-bottom: 60px;">Hey <?php echo $_SESSION['pseudo']; ?> !<br>Jette un oeil sur les tenues !</h1>
+    <?php
+}
+
 foreach ($listeProduit as $produit) {
   setlocale(LC_TIME, 'fr');
   $date = strftime('%A %d %B %G à %Hh%M', strtotime($produit->getDatePublication()));
@@ -22,7 +40,6 @@ foreach ($listeProduit as $produit) {
                         } else {
                             echo '<span>' . $produit->getDescriptionProduit() . '</span>';
                         }
-                        // echo "<br>".strlen($article["description"]);
                         ?>
                     </p>
                 </div>
@@ -60,10 +77,6 @@ foreach ($listeProduit as $produit) {
             </div>
         </article>
     </a>
-
-
-
-
 
 <?php
 }

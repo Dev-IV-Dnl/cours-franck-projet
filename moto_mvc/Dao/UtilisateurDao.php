@@ -32,7 +32,7 @@ class UtilisateurDao extends BaseDao
         );
 
         $requete->execute([
-            ":pseudo" => $_POST["pseudo"]
+            ":pseudo" => $pseudo
         ]);
 
         $utilisateur = $requete->fetch();
