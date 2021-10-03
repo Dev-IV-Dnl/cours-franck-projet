@@ -1,0 +1,308 @@
+:root {
+    --col1: #e95420;
+    --col2: #333;
+    --col3: #F1F1F1;
+    --col4: white;
+    --col5: rgba(255,255,255,.55);
+}
+
+body {
+    background-color: var(--col2);
+}
+
+.container-nav-bar {
+    z-index: 1;
+    position: fixed;
+    width: 100vw;
+}
+
+section {
+    height: 100vh;
+    background-image: url(../images/wall-papers/moto-cross1.jpg);
+    background-size: cover;
+    /* background-repeat: no-repeat; utile avec le contain
+    background-position: center;  utilise avec le contain */
+    /* background-attachment: fixed; */
+    overflow: auto;
+    /*PERMET DE NE PLUS AVOIR DE FIN DE BACKGROUND-IMAGE */
+}
+
+* {
+    color: var(--col3);
+    font-size: 1rem;
+}
+
+article {
+    z-index: 2;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    height: 270px;
+    background-color: var(--col1);
+    border: solid 3px var(--col1);
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px var(--col2);
+    opacity: 0.9;
+}
+
+
+.produit {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.produit>h2 {
+    margin: 2px;
+}
+
+.descriptionProduit {
+    display: flex;
+    justify-content: center;
+}
+
+.produit>.descriptionProduit>p>a {
+    text-decoration: none;
+    transition: linear 0.3s;
+    color: var(--col3);
+}
+
+.produit>.descriptionProduit>p>a:hover {
+    color: var(--col2);
+}
+
+.imageProduit {
+    width: 240px;
+    height: 200px;
+    background-color: var(--col4);
+    border: solid 2px var(--col2);
+    /* box-shadow: 2px 2px 6px var(--col2); */
+    border-radius: 7px;
+    object-fit: contain;
+}
+
+@media screen and (max-width:900px) {
+    article {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .imageProduit {
+        width: 180px;
+        height: 135px;
+    }
+}
+
+a {
+    color: var(--col2);
+}
+
+a:hover {
+    color: var(--col3);
+}
+
+
+h1 {
+    margin: 10px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 100px;
+    border: solid 2px var(--col1);
+    border-radius: 10px;
+    color: var(--col3);
+    background-color: var(--col1);
+    transition: linear 0.3s;
+    user-select: none;
+    opacity: 0.8;
+}
+
+h1:hover {
+    color: var(--col1);
+    background-color: var(--col3);
+}
+
+h3 {
+    color: var(--col2);
+}
+.messageConnexion {
+    width: 650px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px var(--col2);
+    border: solid 2px var(--col1);
+    background-color: var(--col3);
+    opacity: 0.8;
+}
+
+.messageConnexion>h3 {
+    border-radius: 15px;
+    color: var(--col1);
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 10px var(--col2);
+}
+.messageConnexion>h3>a {
+    color: var(--col2);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: linear 0.3s;
+}
+.messageConnexion>h3>a:hover {
+    color: var(--col1);
+}
+
+.lienQuandUtilisateurConnecte {
+    width: 650px;
+    height: 40px;
+    border: solid 2px var(--col1);
+    background-color: transparent;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px var(--col2);
+    background-color: var(--col3);
+    opacity: 0.8;   
+}
+.lienQuandUtilisateurConnecte>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--col1);
+    text-decoration: none;
+    text-shadow: 1px 1px 10px var(--col2);
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+.lienQuandUtilisateurConnecte>a:hover {
+    background-color: var(--col1);
+    color: var(--col3);
+}
+
+h2 {
+    color: var(--col3);
+
+}
+
+label {
+    color: var(--col1);
+    margin-top: 12px;
+}
+
+input {
+    margin: 2px;
+    border: solid 2px var(--col1);
+    border-radius: 5px;
+    color: var(--col1);
+    transition: linear 0.3s;
+}
+
+input:hover {
+    background-color: var(--col1);
+    color: var(--col3);
+}
+
+::placeholder {
+    color: var(--col1);
+}
+::placeholder:hover {
+    color: var(--col3);
+}
+
+.menuAdmin {
+    width: 260px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    border: solid 1px var(--col1);
+    border-radius: 10px;
+    background-color: var(--col1);
+}
+
+.menuAdmin>li>a {
+    margin: 10px;
+    color: var(--col3);
+    text-decoration: none;
+    transition: linear 0.3s;
+}
+
+.menuAdmin>li>a:hover {
+    color: var(--col2);
+}
+
+.buttonPanier {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    background-color: transparent;
+    border-radius: 5px;
+    right: 0;
+    border: solid 1px;
+}
+
+.lienPanier {
+    margin-right: 20px;
+    padding: 5px;
+}
+.icone {
+    transition: linear 0.3s;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--col5);
+}
+.icone:hover {
+    color: var(--col3);
+}
+
+.inputRecherche {
+    width: 236px;
+    height:38px;
+    border: 2px var(--col1);
+    border-radius: 10px;
+    transition: linear 0.3s;
+}
+.inputRecherche:hover {
+    background-color: var(--col1);
+    color: var(--col3);
+    border: solid 2px var(--col3);
+}
+
+#iconeRecherche {
+    width: 40px;
+    height: 100%;
+    transition: linear 0.3s;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--col5);
+}
+#iconeRecherche:hover {
+    color: var(--col1);
+}
+
+.recherche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--col1);
+    height: 40px;
+    width: 40px;
+    transition: linear 0.3s;
+    border: transparent;
+}
+.recherche:hover {
+    background-color: var(--col3);
+}

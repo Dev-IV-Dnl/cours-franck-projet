@@ -1,0 +1,54 @@
+body {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(./images_moto/fondMotoMoyen.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: auto;
+}
+section {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width:100%;
+    height: 100vh;
+    background-size: cover;
+    position: right;
+    border: solid 1px blue;
+    display: flex;
+    justify-content: center;
+}
+.imageMoto {
+    position: absolute;
+    right: 0;
+    width: 800px;
+    height: 608px;
+    background-image: url(./images_moto/moto1.png);
+    background-repeat: no-repeat;
+    border: solid 1px red;
+}
+
+header {
+    width: 100vw;
+    height: 100px;
+    border: solid 1px green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.conteneur-menu {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+nav a {
+    margin-left: 10px;
+    margin-right: 10px;
+}

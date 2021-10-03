@@ -1,0 +1,585 @@
+:root {
+    --rouge: rgb(153, 0, 0);
+    --rose: rgb(172, 68, 68);
+    --rougefoncé: rgb(82, 0, 0);
+    --blanc: #F1F1F1;
+    --noir: #333;
+    --vert: rgb(1, 161, 1);
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+body {
+    background-color: var(--blanc);
+}
+
+section {
+    position: relative;
+    left: 0;
+}
+
+h3 {
+    font-family: 'Pacifico', cursive;
+}
+
+/* Header */
+
+.header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--rouge);
+    border: solid 1px var(--noir);
+}
+
+.header h2 a {
+    font-family: 'Pacifico', cursive;
+    margin-left: 5px;
+    text-decoration: none;
+    color: var(--blanc);
+}
+
+.header nav {
+    float: right;
+    margin-right: 5px;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: var(--blanc);
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+@media screen and (max-width:374px) {
+    .header h2 a {
+        font-size: 20px;
+        color: var(--blanc);
+    }
+
+    .header nav a {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width:430px) {
+    .header nav a {
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .header {
+        width: 100%;
+        height: 70px;
+    }
+
+    .header h2 a {
+        font-size: 20px;
+        color: var(--blanc);
+    }
+
+    .header nav a {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width:760px) {
+    .header {
+        width: 100%;
+        height: 100px;
+    }
+
+    .header h2 a {
+        font-size: 50px;
+        color: var(--blanc);
+    }
+
+    .header nav a {
+        font-size: 30px;
+    }
+}
+
+
+/* Nous Trouver */
+
+.nousTrouver {
+    width: 100%;
+    height: 347px;
+    background-image: url(../img/pizza-2810589_1920.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 1px var(--noir);
+}
+
+.nousTrouver h1 {
+    color: var(--blanc);
+    font-size: 1.5rem;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    padding-top: 18%;
+}
+
+.nousTrouverLien {
+    margin-top: 24%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nousTrouver a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 30px;
+    background-color: var(--rouge);
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--blanc);
+    font-weight: bold;
+    transition: linear 0.3s;
+}
+
+.nousTrouver a:hover {
+    background-color: var(--rougefoncé);
+    font-size: 20px;
+}
+
+@media screen and (max-width:350px) {
+    .nousTrouverLien {
+        margin-top: 40%;
+    }
+
+    .nousTrouver h1 {
+        padding-top: 30%;
+    }
+}
+
+@media screen and (min-width:750px) {
+    .nousTrouverLien {
+        margin-top: 60%;
+    }
+
+    .nousTrouver h1 {
+        font-size: 40px;
+        padding-top: 30%;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .nousTrouverLien {
+        margin-top: 20%;
+    }
+
+    .nousTrouver h1 {
+        padding-top: 10%;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .nousTrouverLien {
+        margin-top: 5%;
+    }
+
+    .nousTrouver h1 {
+        padding-top: 5%;
+    }
+
+    .nousTrouver a {
+        width: 50%;
+        height: 60px;
+    }
+}
+
+@media screen and (min-width:900px) {
+    .nousTrouverLien {
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .nousTrouverLien {
+        margin-top: 2%;
+    }
+}
+
+/*Carte*/
+
+.carte {
+    width: 100%;
+    height: 1280px;
+    text-align: center;
+    border: solid 1px var(--noir);
+}
+
+/* .entrees, .plats, .desserts {
+    text-align: center;
+} */
+
+.imageDessert,
+.imageEntree,
+.imagePlat {
+    /* display: block; */
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.carte h3,
+h4 {
+    font-family: 'Pacifico', cursive;
+    color: var(--vert);
+}
+
+.carte h3 {
+    font-size: 1.7rem;
+    margin-bottom: 0;
+}
+
+.carte h4 {
+    font-size: 1.3rem;
+}
+
+.imageEntree,
+.imageDessert,
+.imagePlat {
+    width: 100%;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imageEntree {
+    background-image: url(../img/bruschetta-4282898_1920.jpg);
+}
+
+.imagePlat {
+    background-image: url(../img/osso-buco-2535546_1920.jpg);
+}
+
+.imageDessert {
+    background-image: url(../img/tiramisu-4098241_1920.jpg);
+}
+
+.prix {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tousPlats p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    width: 220px;
+    height: 30px;
+    border-radius: 10px;
+    transition: linear 0.3s;
+}
+
+.tousPlats p:hover {
+    width: 220px;
+    height: 30px;
+    background-color: var(--vert);
+    color: var(--blanc);
+    cursor: pointer;
+}
+
+@media screen and (min-width:769px) {
+    .carte h3 {
+        width: 100%;
+        font-size: 50px;
+    }
+
+    .carte {
+        width: 100%;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tousPlats {
+        width: 100%;
+        height: 100%;
+        /* border: solid 1px black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .entrees,
+    .plats,
+    .desserts {
+        margin-right: 75px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .carte h3 {
+        width: 100%;
+    }
+
+    .carte {
+        width: 100%;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tousPlats {
+        width: 100%;
+
+        /* border: solid 1px black; */
+        display: flex;
+        /* justify-content: center;
+        align-items: center; */
+    }
+
+    .entrees,
+    .plats,
+    .desserts {
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 33.33%;
+    }
+
+    .imageDessert,
+    .imageEntree,
+    .imagePlat {
+        background-size: contain;
+        width: 350px;
+        height: 250px;
+        /* border: solid 1px var(--noir); */
+    }
+}
+
+
+/* Nos services */
+
+.services {
+    width: 100%;
+    height: 1150px;
+    border: solid 1px var(--noir);
+    background-color: var(--rouge);
+}
+
+.services h3 {
+    color: var(--blanc);
+    font-size: 30px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.toutService {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imageGauche1,
+.imageGauche2,
+.imageDroite {
+    width: 100%;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: linear 0.3s;
+}
+
+.imageGauche1:hover,
+.imageGauche2:hover,
+.imageDroite:hover {
+    transform: rotate(10deg);
+    cursor: pointer;
+}
+
+.imageGauche1 {
+    background-image: url(../img/pizza-5349414_1920.jpg);
+}
+
+.services p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    width: 180px;
+    height: 110px;
+    background-color: var(--rougefoncé);
+    color: var(--blanc);
+    border: solid 1px var(--noir);
+}
+
+.imageGauche2 {
+    background-image: url(../img/waiter-5513560_1920.jpg);
+}
+
+.imageDroite {
+    background-image: url(../img/market-3916964_1920.jpg);
+}
+
+@media screen and (min-width:760px) {
+    .toutService {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .toutServiceGauche {
+        margin-right: 30px;
+    }
+
+    .services {
+        height: 620px;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .toutServiceGauche {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .toutServiceDroite {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (min-width:1300px) {
+    .services {
+        height: 300px;
+    }
+
+    .toutServiceGauche {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .toutServiceDroite {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin-right: 10px;
+    }
+}
+
+
+/* Nous Contacter */
+
+.contact h3 {
+    color: var(--vert);
+    font-size: 30px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.contact {
+    width: 100%;
+    height: 500px;
+    /* border: solid 1px var(--noir); */
+}
+
+.icone,
+.localisation,
+.tel {
+    font-size: 20px;
+    color: var(--vert);
+}
+
+.nom,
+.adresse,
+.telephone {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.contactDroite {
+    width: 100%;
+    height: 230px;
+}
+
+.map {
+    width: 100%;
+    height: 230px;
+    background-image: url(../img/map_restaurant.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (min-width:760px) {
+    .contact {
+        height: 360px;
+    }
+
+    .toutContact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contactDroite {
+        width: 50%;
+    }
+
+    .nom,
+    .adresse,
+    .telephone {
+        text-align: left;
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
+}
+
+/* Footer */
+
+.separator {
+    width: 80%;
+    height: 2px;
+    border: solid 1px var(--rouge);
+    background-color: var(--rouge);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+footer p {
+    font-family: 'Pacifico', cursive;
+    color: var(--rouge);
+}
+
+@media screen and (max-width:380px) {
+    footer p {
+        font-size: 10px;
+    }
+}
